@@ -1,0 +1,170 @@
+﻿@import url(menu.css);
+
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin-left: 0;
+    margin-right: 0;
+    }
+
+body {
+    background-size: 100vw 100vh; /*para que la imagen rellene toda la pantalla*/
+    background-attachment: fixed; /*para que la imagen quede fija*/
+    margin: 0; /*sirve para quitar los espacios que tiene el body*/
+}
+
+#form1{
+    width: 450px; /*para el ancho*/
+    margin: auto; /*para que el formulario este centrado horizonatalmente*/
+    background: rgba(0,0,0,0.4);/*color de fondo rgba(rojo, verde, azul, transparencia)*/
+    padding: 10px 20px ;/*relleno que va a tener el formulario (margen):  verticas px horizontal px*/
+    box-sizing: border-box;
+    margin-top: 150px; /*sirve para mover el formulario hacia abajo*/
+    border-radius: 7px ; /*es para poner esquinas redondeadas*/
+}
+
+#form2{
+    width: 450px; /*para el ancho*/
+    margin: auto; /*para que el formulario este centrado horizonatalmente*/
+    background: rgba(0,0,0,0.4);/*color de fondo rgba(rojo, verde, azul, transparencia)*/
+    padding: 10px 20px ;/*relleno que va a tener el formulario (margen):  verticas px horizontal px*/
+    box-sizing: border-box;
+    margin-top: auto; /*sirve para mover el formulario hacia abajo*/
+    border-radius: 7px ; /*es para poner esquinas redondeadas*/
+}
+
+#form3{
+    width: 450px; /*para el ancho*/
+    margin: auto; /*para que el formulario este centrado horizonatalmente*/
+    background: rgba(0,0,0,0.4);/*color de fondo rgba(rojo, verde, azul, transparencia)*/
+    padding: 10px 20px ;/*relleno que va a tener el formulario (margen):  verticas px horizontal px*/
+    box-sizing: border-box;
+    margin-top: 110px; /*sirve para mover el formulario hacia abajo*/
+    border-radius: 7px ; /*es para poner esquinas redondeadas*/
+}
+
+h2{ /*CONTACTO*/
+    color: #fff; /*ponerle color*/
+    text-align: center; /*centrar el texto*/
+    margin: 0px; /*eliminar margenes*/
+    font-size: 30px; /*tamaño del texto*/
+    margin-bottom: 20px; /*margen el la parte de abajo del texto*/
+}
+
+h3{
+    color: #fff; /*ponerle color*/
+    margin: 0px; /*eliminar margenes*/
+    margin-bottom: 10px; /*margen el la parte de abajo del texto*/
+}
+
+.fecha{
+    width:33.33333%; /*tamaño de ancho*/
+    margin-bottom: 10px; /*espacio en la parte de abajo*/
+    padding: 7px;/*mas grandes los textbox*/
+    box-sizing: border-box; /*para que no se salga del margen anterior*/
+    font-size: 17px;
+    border: none; /*para quitar el borde 3D*/
+}
+
+.ddl{
+    width:80%; /*tamaño de ancho*/
+    margin-bottom: 10px; /*espacio en la parte de abajo*/
+    padding: 7px;/*mas grandes los textbox*/
+    box-sizing: border-box; /*para que no se salga del margen anterior*/
+    font-size: 17px;
+    border: none; /*para quitar el borde 3D*/
+}
+
+.btn{
+    margin-bottom: 10px; /*espacio en la parte de abajo*/
+    box-sizing: border-box; /*para que no se salga del margen anterior*/
+    font-size: 17px;
+    border: none; /*para quitar el borde 3D*/
+
+    width: 19%; /*tamaño maximo de ancho*/
+    height: 36px;
+
+    background: #31384A; /*color del boton*/
+    color: #fff; /*color de texto*/
+    padding: 2px; /*agrandar mas el margen*/
+}
+
+a{
+    text-decoration:none;
+}
+
+.cajadeTexto, .cajacomentario{
+    width:100%; /*tamaño de ancho*/
+    margin-bottom: 10px; /*espacio en la parte de abajo*/
+    padding: 7px;/*mas grandes los textbox*/
+    box-sizing: border-box; /*para que no se salga del margen anterior*/
+    font-size: 17px;
+    border: none; /*para quitar el borde 3D*/
+}
+
+.cajacomentario{
+    min-height: 100px; /*alto minimo*/
+    max-height: 200px; /*alto maximo*/
+    max-width: 100%; /*tamaño maximo de ancho*/
+}
+
+#boton{
+    background: #31384A; /*color del boton*/
+    color: #fff; /*color de texto*/
+    padding: 20px; /*agrandar mas el margen*/
+}
+
+#modifi{
+    background: #31384A; /*color del boton*/
+    color: #fff; /*color de texto*/
+    padding: 20px; /*agrandar mas el margen*/
+}
+
+#modifi:hover, #boton:hover, .btn:hover{ /*seudo clase hover= nos permite tener un estilo diferente del mouse cuando este encima del boton*/
+    cursor: pointer; /*poner un tipo de cursor*/
+}
+
+@media(max-width: 480px) /*es como un if*/{
+    form{
+        width: 100%;
+    }
+}
+
+.Error {
+    height:10%;
+    Width: 100%;
+    box-sizing: border-box; /*para que no se salga del margen anterior*/
+    margin-top: 0%;
+    margin-bottom: 1%;
+    font-size: 15pt;
+    color: red;
+    background: black;
+}
+
+
+/*--------------HEADER--MENU DESPLEGABLE-------------------*/
+ header{
+    width: 100%;
+    height: 50px;
+    background: #333;/*color del header*/
+    color: #fff;/*color de la fuente*/
+    
+    position:fixed;/*para que se quede pegado*/
+    top: 0; /*para quede ajustado desde arriba*/
+    left: 0; /*para que se ajuste a la izquierda*/
+    z-index: 100; /*para que este siempre adelante de los demas elementos*/
+}
+
+.contenedor{
+    width: 98%;
+    margin: auto;
+}
+
+h1{
+    float: left;
+    margin-top: 2px;
+}
+
+header .contenedor{
+    display: table;
+}

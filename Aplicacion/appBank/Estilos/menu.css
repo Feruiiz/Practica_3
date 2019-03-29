@@ -1,0 +1,95 @@
+#menu-bar{
+    display: none;
+}
+
+#md{
+    float: right;
+    font-size: 28px;
+    margin: 6px 0;
+    cursor: pointer; /*para cuando el mouse este encima aprezca una manita*/
+}
+#nombre_usuario{
+    float: right;
+    font-size: 15px;
+    margin: 13px 0;
+    cursor: pointer;
+}
+
+
+/* width = 100% y hight = 100vh */
+.menu{
+    position: absolute;
+    width: 30%;
+    height: 100vh; /*para que ocupe toda la altura de la ventana*/
+    background: rgba(51,51,51,0.9);
+    
+    top: 50px;/*para ajustar en la parte de arriba*/
+    left: 0;/*para ajustar a la izquierda*/
+    
+    transition: all 0.5s;
+    transform: translateX(334%);
+    
+}
+
+.menu a{
+    display: block; /*para que el menu este como un listado*/
+    color: #fff; /*color del texto*/
+    height: 50px; /*altura de cada a*/
+    text-decoration: none; /*quitar subrayado*/
+    padding: 15px; /*margen*/
+    border-bottom: 1px solid rgba(255,255,255,0.3); /*borde solido*/
+}
+
+.menu a:hover{
+    background: rgba(255,255,255,0.3); /*cuando pase el mouse el menu tomara otro color de borde*/
+}
+
+#menu-bar:checked ~ .menu{ /*cuando este la opcion "checked" entonces activara menu  234%*/
+    transform: translateX(270%);
+}
+
+
+
+/*NUEVO MENU*/
+ul, li{
+    list-style: none;
+}
+
+.nav li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.nav li ul a:hover{
+    background-color: #434343;
+}
+
+.nav > li{
+    position: relative;
+    
+}
+
+.nav li ul{
+    display: none;
+    position: absolute;
+    min-width: 230px;
+}
+
+.nav li:hover > ul{
+    display: block;
+}
+.nav li{
+    position: relative;
+    cursor: pointer;
+}
+
+.nav li ul{
+    left: -230px;
+    top: 0px;
+}
+
+.nav li ul a{
+    background: black;
+}
