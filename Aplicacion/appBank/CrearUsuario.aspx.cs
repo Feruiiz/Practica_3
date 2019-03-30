@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 
+
 public partial class CrearUsuario : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
