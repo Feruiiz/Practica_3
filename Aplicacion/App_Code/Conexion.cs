@@ -44,11 +44,11 @@ public class Conexion
             }
 
         }
-        catch (Exception ex)
+        catch (MySql.Data.MySqlClient.MySqlException ex)
         {
+            Console.WriteLine("Error " + ex.Number + " has occurred: " + ex.Message);
             return false;
-
         }
-        
+
     }
 }
