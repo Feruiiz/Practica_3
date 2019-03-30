@@ -9,6 +9,8 @@ using MySql.Data.MySqlClient;
 
 public partial class CrearUsuario : System.Web.UI.Page
 {
+
+    Conexion c = new Conexion();
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -43,8 +45,19 @@ public partial class CrearUsuario : System.Web.UI.Page
 
             if (pass1.Text == pass2.Text)
             {
+                if(c.crearUsuario(name, nick, pass1.Text, email))
+                {
+                   Response.Write("<script>window.alert('Se ha registro al sistema');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>window.alert('Ocurrió un error al intentar agregarse a la base de datos');</script>");
+                }
 
-
+            }
+            else
+            {
+                Response.Write("<script>window.alert('Las contraseñas no coinciden');</script>");
             }
 
         }

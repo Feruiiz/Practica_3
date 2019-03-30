@@ -19,8 +19,10 @@ ALTER TABLE Usuario
 	ADD COLUMN contraseña VARCHAR(8) NOT NULL AFTER correo;  
 
 
+
+
 DELIMITER //
-CREATE PROCEDURE ADD_USER(IN user_name VARCHAR(50), IN user_nick VARCHAR(50),  IN user_email VARCHAR(150) , IN user_pass VARCHAR(8))
+CREATE PROCEDURE ADD_USER(IN user_name VARCHAR(50), IN user_nick VARCHAR(12),  IN user_email VARCHAR(50) , IN user_pass VARCHAR(8))
 BEGIN	
 
 INSERT INTO Usuario (nombre, nickname, correo, contraseña, idrolUsuario) values (user_name, user_nick, user_email,user_pass, 2);
