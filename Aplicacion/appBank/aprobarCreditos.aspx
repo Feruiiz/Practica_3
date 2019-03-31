@@ -42,7 +42,7 @@
                 <asp:ListItem Value="0">Transferir monto a otra cuenta</asp:ListItem>
                 <asp:ListItem Value="1">Deposito</asp:ListItem>
                 <asp:ListItem Value="2">Retiro</asp:ListItem>
-        </asp:DropDownList>
+            </asp:DropDownList>
             <asp:TextBox class ="cajadeTexto" ID="cuenta2" runat="server" placeholder ="Cuenta destino con numero:" required></asp:TextBox>
             <asp:TextBox class ="cajadeTexto" ID="monto" runat="server" placeholder ="monto" required></asp:TextBox>
             

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./Estilos/fontello.css"> 
     <title>Transferencia</title>
 </head>
-<body background="/imagenes/inicio2.jpg">
+<body background="./imagenes/perfil.jpg">
     <header>
            <div class="contenedor">
                 <h1 class="icon-spin3">BANK</h1>
@@ -22,6 +22,7 @@
                     <li><a><span class="icon-left-open"></span>Ver Historial</a></li>
                     <li><a href="transferenciaCuentas.aspx">Transferencias Bancarias</a></li>
                     <li><a href="solicitudPrestamo.aspx">Solicitud de prestamo</a></li>
+                    <li><a href="inicio.aspx">ir a Inicio</a></li>
                     <li><a href="iniciarSesion.aspx">Salir del Sisteme</a></li>
                   </ul>
                   </nav>

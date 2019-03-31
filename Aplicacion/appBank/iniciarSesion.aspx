@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./Estilos/fontello.css">
     <title>Pagina de Inicio</title>
 </head>
-<body background ="/imagenes/inicio.jpg">
+<body background ="./imagenes/inicio.jpg">
    <form id="form1" runat="server">
         <h2>INICIO DE SESION</h2>
             <asp:TextBox class ="cajadeTexto" ID="codigoUsu" runat="server" placeholder ="Ingrese codigo" required TextMode="Number"></asp:TextBox>

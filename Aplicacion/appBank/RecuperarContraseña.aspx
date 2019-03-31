@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./Estilos/fontello.css"> 
     <title>Recuperar Contraseña</title>
 </head>
-<body background ="/imagenes/RecuperarContraseña.png">
+<body background ="./imagenes/RecuperarContraseña.png">
     <form id="form1" runat="server">
         <h2>RECUPERAR CONTRASEÑA</h2>
             <p>
