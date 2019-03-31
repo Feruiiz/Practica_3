@@ -26,4 +26,9 @@ public partial class appBank_aprobarCreditos : System.Web.UI.Page
                 break;
         }
     }
+
+    protected void boton_Click(object sender, EventArgs e)
+    {
+
+    }
 }

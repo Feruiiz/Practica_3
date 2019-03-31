@@ -71,24 +71,31 @@ public partial class transferenciaCuentas : System.Web.UI.Page
                     {
                         if (!Session["idCuenta"].ToString().Equals(cuenta2.Text))
                         {
-                            double montoAumenta = Convert.ToDouble(cuenta_2[0].dato2);
-                            dinero = Convert.ToDouble(monto.Text);
-
-                            this.cuenta = con.datosCuenta("SELECT * FROM Cuenta WHERE idCuenta=" + Session["idCuenta"].ToString() + ";");
-                            this.valorActual = Convert.ToDouble(cuenta[0].dato2.ToString());
-
-                            if (valorActual >= dinero)
+                            if (!Session["idCuenta"].ToString().Equals(cuenta1.Text))
                             {
-                                valorActual = valorActual - dinero;
-                                montoAumenta = montoAumenta + dinero;
-                                saldoActual.Text = "Saldo actual: Q " + valorActual.ToString("N2");
-                                con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual.ToString("N2") + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");
-                                con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + montoAumenta.ToString("N2") + " WHERE idCuenta = " + cuenta_2[0].dato1.ToString() + ";");
-                                Response.Write("<script>window.alert('La transferencia se realizo con exito.');</script>");
+                                double montoAumenta = Convert.ToDouble(cuenta_2[0].dato2);
+                                dinero = Convert.ToDouble(monto.Text);
+
+                                this.cuenta = con.datosCuenta("SELECT * FROM Cuenta WHERE idCuenta=" + Session["idCuenta"].ToString() + ";");
+                                this.valorActual = Convert.ToDouble(cuenta[0].dato2.ToString());
+
+                                if (valorActual >= dinero)
+                                {
+                                    valorActual = valorActual - dinero;
+                                    montoAumenta = montoAumenta + dinero;
+                                    saldoActual.Text = "Saldo actual: Q " + valorActual.ToString("N2");
+                                    con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual.ToString("N2") + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");
+                                    con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + montoAumenta.ToString("N2") + " WHERE idCuenta = " + cuenta_2[0].dato1.ToString() + ";");
+                                    Response.Write("<script>window.alert('La transferencia se realizo con exito.');</script>");
+                                }
+                                else
+                                {
+                                    Error.Text = "ERROR: El numero de cuenta propia no coincide con la del usuario.";
+                                }
                             }
                             else
                             {
-                                Error.Text = "ERROR: No cuenta con el saldo suficiente para realizar esta transaccion.";
+                                Error.Text = "ERROR: Debe de ingresar un numero de cuenta diferente a la suya.";
                             }
                         }
                         else
@@ -114,12 +121,15 @@ public partial class transferenciaCuentas : System.Web.UI.Page
         switch(Convert.ToInt64(DropDownList1.SelectedValue.ToString()))
         {
             case 0: //transferencia entre cuentas
+                cuenta1.Visible = true;
                 cuenta2.Visible = true;
                 break;
             case 1: //Deposito
+                cuenta1.Visible = false;
                 cuenta2.Visible = false;
                 break;
             case 2: //Retiro
+                cuenta1.Visible = false;
                 cuenta2.Visible = false;
                 break;
         }

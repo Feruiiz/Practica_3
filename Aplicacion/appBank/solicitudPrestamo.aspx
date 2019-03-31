@@ -20,7 +20,7 @@
                 <nav class="menu">
                 <ul class="nav">
                     <li><a><span class="icon-left-open"></span>Ver Historial</a></li>
-                    <li><a href="">Perfil de Usuario</a></li>
+                    <li><a href="perfilUsuario.aspx">Perfil de Usuario</a></li>
                     <li><a href="transferenciaCuentas.aspx">Transferencia entre cuentas</a></li>
                     <li><a href="iniciarSesion.aspx">Salir del Sisteme</a></li>
                   </ul>

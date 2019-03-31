@@ -20,7 +20,7 @@
                 <nav class="menu">
                 <ul class="nav">
                     <li><a><span class="icon-left-open"></span>Ver Historial</a></li>
-                    <li><a href="">Perfil de Usuario</a></li>
+                    <li><a href="perfilUsuario.aspx">Perfil de Usuario</a></li>
                     <li><a href="solicitudPrestamo.aspx">Solicitud de prestamo</a></li>
                     <li><a href="iniciarSesion.aspx">Salir del Sisteme</a></li>
                   </ul>
@@ -43,6 +43,7 @@
                 <asp:ListItem Value="1">Deposito</asp:ListItem>
                 <asp:ListItem Value="2">Retiro</asp:ListItem>
         </asp:DropDownList>
+            <asp:TextBox class ="cajadeTexto" ID="cuenta1" runat="server" placeholder ="Cuenta propia numero:" required></asp:TextBox>
             <asp:TextBox class ="cajadeTexto" ID="cuenta2" runat="server" placeholder ="Cuenta destino con numero:" required></asp:TextBox>
             <asp:TextBox class ="cajadeTexto" ID="monto" runat="server" placeholder ="monto" required></asp:TextBox>
             
