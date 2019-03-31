@@ -21,6 +21,7 @@
                 <ul class="nav">
                     <li><a><span class="icon-left-open"></span>Ver Historial</a></li>
                     <li><a href="">Perfil de Usuario</a></li>
+                    <li><a href="transferenciaCuentas.aspx">Transferencia entre cuentas</a></li>
                     <li><a href="iniciarSesion.aspx">Salir del Sisteme</a></li>
                   </ul>
                   </nav>
@@ -37,12 +38,12 @@
     <form id="form3" runat="server">
         <h2>Solicitud de prestamo</h2>
             <asp:TextBox class ="cajadeTexto" ID="monto" runat="server" placeholder ="monto" required></asp:TextBox>
-            <asp:TextBox class ="cajacomentario" ID="descripcion" runat="server" placeholder ="Escriba una descripcion" TextMode="MultiLine"></asp:TextBox>
+            <asp:TextBox class ="cajacomentario" ID="descripcion" runat="server" placeholder ="Escriba una descripcion" TextMode="MultiLine" required></asp:TextBox>
             
             <asp:Label ID="Error" runat="server" Text="" cssclass="Error"></asp:Label> 
          
             <!--<input type="button" value="Enviar" id="boton">-->
-            <asp:Button class ="cajadeTexto" ID="boton" runat="server" Text="Realizar transferencia" OnClick="boton_Click" />
+            <asp:Button class ="cajadeTexto" ID="boton" runat="server" Text="Enviar solicitud" OnClick="boton_Click" />
            
     </form>
 </body>

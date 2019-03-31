@@ -39,8 +39,14 @@ public partial class iniciarSesion : System.Web.UI.Page
             Session["passUsu"] = usuario[0].dato5;
             Session["rolUsu"] = usuario[0].dato6;
             Session["idCuenta"] = usuario[0].dato7;
-            Response.Redirect("transferenciaCuentas.aspx");
-            
+            if(Session["rolUsu"].ToString().Equals("1")) //Administrador
+            {
+
+            }
+            else if(Session["rolUsu"].ToString().Equals("2")) //Cliente
+            {
+                Response.Redirect("transferenciaCuentas.aspx");
+            }
         }
         else
         {
