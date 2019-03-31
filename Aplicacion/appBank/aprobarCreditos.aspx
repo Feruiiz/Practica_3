@@ -36,19 +36,9 @@
     </br>
 
     <form id="form3" runat="server">
-<<<<<<< HEAD
+
         <h2>Solicitud de Créditos</h2>
-=======
-        <h2>TRANSFERENCIAS BANCARIAS</h2>
-            <asp:Label CssClass="cajadeTexto" ID="saldoActual" runat="server" ForeColor="White"></asp:Label>
-            <asp:DropDownList class ="cajadeTexto" ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                <asp:ListItem Value="0">Transferir monto a otra cuenta</asp:ListItem>
-                <asp:ListItem Value="1">Deposito</asp:ListItem>
-                <asp:ListItem Value="2">Retiro</asp:ListItem>
-            </asp:DropDownList>
-            <asp:TextBox class ="cajadeTexto" ID="cuenta2" runat="server" placeholder ="Cuenta destino con numero:" required></asp:TextBox>
-            <asp:TextBox class ="cajadeTexto" ID="monto" runat="server" placeholder ="monto" required></asp:TextBox>
->>>>>>> 8e0c142224bba6f901f55f309b11fc712b3aca97
+
             
             <asp:DropDownList class ="cajadeTexto" ID="listaPrestamos" runat="server" AutoPostBack="True">
             </asp:DropDownList>
