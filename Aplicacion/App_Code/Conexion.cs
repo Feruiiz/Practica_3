@@ -250,7 +250,6 @@ public class Conexion
             }
             else
             {
-                Console.WriteLine("Fallo conexion");
                 return null;
             }
 
