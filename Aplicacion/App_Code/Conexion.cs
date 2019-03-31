@@ -114,6 +114,65 @@ public class Conexion
 
     }
 
+    public LinkedList<Solicitud> getSolicitudes() {
+        LinkedList<Solicitud> l_s = new LinkedList<Solicitud>();
+        Solicitud s = null;
+        MySqlConnection conn = getConection();
+        if (conn != null)
+        {
+            MySqlCommand cmd = new MySqlCommand();
+            try
+            {
+                cmd.Connection = conn;
+
+                
+                cmd.CommandText = "CALL SEE_CREDITS();";
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        String nombre = reader["nombre"].ToString();
+                        int id_solicitud = int.Parse(reader["idSolicitud"].ToString());
+                        String descripcion = reader["descripcion"].ToString();
+                        String monto = reader["monto"].ToString();
+                        s = new Solicitud(nombre, id_solicitud, descripcion, monto);
+                        l_s.AddLast(s);
+                    }
+                }
+                /*
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@nombre", MySqlDbType.VarChar);
+                cmd.Parameters["@nombre"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@idSolicitud", MySqlDbType.Int32);
+                cmd.Parameters["@idSolicitud"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@descripcion", MySqlDbType.VarChar);
+                cmd.Parameters["@descripcion"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@monto", MySqlDbType.Float);
+                cmd.Parameters["@monto"].Direction = ParameterDirection.Output;
+
+                cmd.ExecuteNonQuery();
+                */
+                
+                conn.Close();
+                return l_s;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                Console.WriteLine("Error " + ex.Number + " has occurred: " + ex.Message);
+                conn.Close();
+            }
+
+        }
+        return l_s;
+    }
+
+
+
     public bool crearUsuario(String name, String nick, String pass, String email) 
     {
         //CREATE PROCEDURE ADD_USER(IN user_name VARCHAR(50), IN user_nick VARCHAR(50),  IN user_email VARCHAR(150) , IN user_pass VARCHAR(8))

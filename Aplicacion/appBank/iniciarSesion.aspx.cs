@@ -41,7 +41,7 @@ public partial class iniciarSesion : System.Web.UI.Page
             Session["idCuenta"] = usuario[0].dato7;
             if(Session["rolUsu"].ToString().Equals("1")) //Administrador
             {
-
+                Response.Redirect("aprobarCreditos.aspx");
             }
             else if(Session["rolUsu"].ToString().Equals("2")) //Cliente
             {

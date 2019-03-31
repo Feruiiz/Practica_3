@@ -1,6 +1,10 @@
 use ayd1db;
 select * from Usuario;
 update Usuario set idrolUsuario = 1, nombre = 'admin', nickname = 'admin' where idUsuario = 1;
+
+update Cuenta set saldo = saldo + 100 where idUsuario = ;
+select u.idUsuario from Usuario u, Solicitud_Prestamo s, Cuenta c where s.idSolicitud = 11 and u.idUsuario = c.idUsuario and c.idCuenta = s.idCuenta;
+
 select * from Cuenta;
 
 select * from Solicitud_Prestamo;
@@ -13,8 +17,11 @@ INSERT INTO Tipo_Cuenta (nombre, descripcion) VALUES ("Ahorro", "Cuenta monetari
 select * from Tipo_Cuenta;
 
 INSERT INTO Solicitud_Prestamo VALUES(default,10000,'Necesito realizar el prestamos por iniciatia de negocio',0,1,4);
-
+select * from Solicitud_Prestamo;
 select * from Rol_Usuario;
+select * from Cuenta;
+
+
 
 ALTER TABLE Usuario
 	DROP COLUMN nickname;
@@ -59,9 +66,15 @@ END IF;
 
 END
 //
-DELIMITER ;
 
+CREATE PROCEDURE SEE_CREDITS()
+BEGIN
 
+select u.nombre, s.idSolicitud, s.descripcion, s.monto 
+from Solicitud_Prestamo s, Usuario u, Cuenta c
+where u.idUsuario = c.idUsuario and s.idCuenta = c.idCuenta and s.estado = 0;
 
+END
+//
 
-
+CALL SEE_CREDITS()//

@@ -36,20 +36,30 @@
     </br>
 
     <form id="form3" runat="server">
-        <h2>TRANSFERENCIAS BANCARIAS</h2>
-            <asp:Label CssClass="cajadeTexto" ID="saldoActual" runat="server" ForeColor="White"></asp:Label>
-            <asp:DropDownList class ="cajadeTexto" ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                <asp:ListItem Value="0">Transferir monto a otra cuenta</asp:ListItem>
-                <asp:ListItem Value="1">Deposito</asp:ListItem>
-                <asp:ListItem Value="2">Retiro</asp:ListItem>
-        </asp:DropDownList>
-            <asp:TextBox class ="cajadeTexto" ID="cuenta2" runat="server" placeholder ="Cuenta destino con numero:" required></asp:TextBox>
-            <asp:TextBox class ="cajadeTexto" ID="monto" runat="server" placeholder ="monto" required></asp:TextBox>
+        <h2>Solicitud de Créditos</h2>
             
+            <asp:DropDownList class ="cajadeTexto" ID="listaPrestamos" runat="server" AutoPostBack="True">
+            </asp:DropDownList>
+           <asp:Button class ="cajadeTexto" ID="btn_solicitud" runat="server" Text="Ver solicitud" OnClick="verSolicitud_click" />
+            <asp:Label CssClass="cajadeTexto" ID="id_solicitud" runat="server" ForeColor="White" Text ="Solicitud No: "></asp:Label>            
+        <asp:Label CssClass="cajadeTexto" ID="no_solicitud" runat="server" ForeColor="White" Text =""></asp:Label>            
+            </br>
+            </br>
+            <asp:Label CssClass="cajadeTexto" ID="cliente" runat="server" ForeColor="White" Text ="Cliente: "></asp:Label>
+            </br>
+            </br>
+            <asp:Label CssClass="cajadeTexto" ID="lbl_descrip" runat="server" ForeColor="White" Text ="Descripcion: "></asp:Label>
+            <asp:TextBox class ="cajacomentario" ID="descripcion" runat="server" placeholder ="Descripcion..." TextMode="MultiLine"></asp:TextBox>
+            </br>
+            </br>
+            <asp:Label CssClass="cajadeTexto" ID="monto" runat="server" ForeColor="White" Text ="Monto: "></asp:Label>
+            </br>
+            </br>
             <asp:Label ID="Error" runat="server" Text="" cssclass="Error"></asp:Label> 
          
             <!--<input type="button" value="Enviar" id="boton">-->
-            <asp:Button class ="cajadeTexto" ID="boton" runat="server" Text="Realizar transferencia" OnClick="boton_Click" />
+            <asp:Button class ="cajadeTexto" ID="btn_aceptar" runat="server" Text="Aceptar Crédito" OnClick="acept_credito_click" />
+        <asp:Button class ="cajadeTexto" ID="btn_rechazar" runat="server" Text="Rechazar Crédito" OnClick="rech_credito_click" />
            
     </form>
 </body>
