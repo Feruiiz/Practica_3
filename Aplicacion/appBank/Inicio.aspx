@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./Estilos/fontello.css"> 
     <title>Inicio</title>
 </head>
-<body>
+<body  background="./imagenes/inicio1.jpg">
     <header>
            <div class="contenedor">
                 <h1 class="icon-spin3">BANK</h1>
@@ -20,9 +20,9 @@
                 <nav class="menu">
                 <ul class="nav">
                     <li><a><span class="icon-left-open"></span>Ver Historial</a></li>
-                    <li><a href="">Perfil de Usuario</a></li>
+                    <li><a href="perfilUsuario.aspx">Perfil de Usuario</a></li>
                     <li><a href="solicitudPrestamo.aspx">Solicitud de prestamo</a></li>
-                    <li><a href="trasferenciaCuentas.aspx">Transferencias</a></li>
+                    <li><a href="transferenciaCuentas.aspx">Transferencias Bancarias</a></li>
                     <li><a href="iniciarSesion.aspx">Salir del Sisteme</a></li>
                     
                   </ul>
@@ -42,7 +42,7 @@
 
     <form id="form3" runat="server">
         <h2>Bienvenido</h2>
-        <asp:Label  class="nomusu" ID="name_user" runat="server" ></asp:Label>
+        <asp:Label  class="nomusu" ID="name_user" runat="server" ForeColor="White" ></asp:Label>
         </br>
         </br>
         <h2>Información Cuenta</h2>

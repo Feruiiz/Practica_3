@@ -150,5 +150,4 @@ public partial class appBank_aprobarCreditos : System.Web.UI.Page
         }
     }
 
-
 }

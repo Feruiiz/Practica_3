@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="transferenciaCuentas.aspx.cs" Inherits="transferenciaCuentas" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="perfilUsuario.aspx.cs" Inherits="appBank_perfilUsuario" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./Estilos/fontello.css"> 
     <title>Transferencia</title>
 </head>
-<body background="./imagenes/AgregarSoftware.jpg">
+<body background="./imagenes/perfil.jpg">
     <header>
            <div class="contenedor">
                 <h1 class="icon-spin3">BANK</h1>
@@ -20,7 +20,7 @@
                 <nav class="menu">
                 <ul class="nav">
                     <li><a><span class="icon-left-open"></span>Ver Historial</a></li>
-                    <li><a href="perfilUsuario.aspx">Perfil de Usuario</a></li>
+                    <li><a href="transferenciaCuentas.aspx">Transferencias Bancarias</a></li>
                     <li><a href="solicitudPrestamo.aspx">Solicitud de prestamo</a></li>
                     <li><a href="inicio.aspx">ir a Inicio</a></li>
                     <li><a href="iniciarSesion.aspx">Salir del Sisteme</a></li>
@@ -37,21 +37,17 @@
     </br>
 
     <form id="form3" runat="server">
-        <h2>TRANSFERENCIAS BANCARIAS</h2>
-            <asp:Label CssClass="cajadeTexto" ID="saldoActual" runat="server" ForeColor="White"></asp:Label>
-            <asp:DropDownList class ="cajadeTexto" ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                <asp:ListItem Value="0">Transferir monto a otra cuenta</asp:ListItem>
-                <asp:ListItem Value="1">Deposito</asp:ListItem>
-                <asp:ListItem Value="2">Retiro</asp:ListItem>
-        </asp:DropDownList>
-            <asp:TextBox class ="cajadeTexto" ID="cuenta1" runat="server" placeholder ="Cuenta propia numero:" required></asp:TextBox>
-            <asp:TextBox class ="cajadeTexto" ID="cuenta2" runat="server" placeholder ="Cuenta destino con numero:" required></asp:TextBox>
-            <asp:TextBox class ="cajadeTexto" ID="monto" runat="server" placeholder ="monto" required></asp:TextBox>
+        <h2>Perfil de Usuario</h2>
             
+            <asp:TextBox class ="cajadeTexto" ID="nombre" runat="server" placeholder ="Nombre completo" required></asp:TextBox>
+            <asp:TextBox class ="cajadeTexto" ID="nickname" runat="server" placeholder ="Nickname" required></asp:TextBox>
+            <asp:TextBox class ="cajadeTexto" ID="correo" runat="server" placeholder ="Correo electronico" required></asp:TextBox>
+            
+            <asp:TextBox class ="cajadeTexto" ID="pass" runat="server" placeholder ="Ingrese su contraseña actual" required TextMode="Password"></asp:TextBox>
             <asp:Label ID="Error" runat="server" Text="" cssclass="Error"></asp:Label> 
          
             <!--<input type="button" value="Enviar" id="boton">-->
-            <asp:Button class ="cajadeTexto" ID="boton" runat="server" Text="Realizar transferencia" OnClick="boton_Click" />
+            <asp:Button class ="cajadeTexto" ID="boton" runat="server" Text="Guardar cambios" OnClick="boton_Click" />
            
     </form>
 </body>
