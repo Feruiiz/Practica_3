@@ -42,7 +42,6 @@ public partial class appBank_Debitos : System.Web.UI.Page
                     if (cuentas.Count >= 0)
                     {
                         Double newSaldo = Convert.ToDouble(cuentas[0].dato2) - Convert.ToDouble(monto.Text);
-                        Response.Write("<script>window.alert('" + newSaldo.ToString("N2") + ".');</script>");
                         c.Ejecutar201503984("UPDATE Cuenta SET saldo = " + newSaldo.ToString() + " WHERE idCuenta = " + cuenta.Text + ";");
                         newSaldo = Convert.ToDouble(datos[0].dato2) - Convert.ToDouble(monto.Text);
                         c.Ejecutar201503984("UPDATE Solicitud_Prestamo SET monto = " + newSaldo.ToString("N2") + " WHERE idSolicitud = " + datos[0].dato1 + ";");
