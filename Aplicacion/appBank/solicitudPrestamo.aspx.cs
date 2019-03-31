@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,15 +31,31 @@ public partial class solicitudPrestamo : System.Web.UI.Page
         try
         {
             double valor = Convert.ToDouble(monto.Text);
-            Response.Write("<script>window.alert('"+ valor.ToString("N2") + "');</script>");
-            if (con.Ejecutar201503984("INSERT INTO Solicitud_Prestamo VALUES(default," + valor.ToString("N2") + ",'" + descripcion.Text + "',0,1," + Session["idCuenta"].ToString() + ");"))
+            MySqlConnection conn = con.getConection();
+            if (conn != null)
             {
-                Response.Write("<script>window.alert('La solicitud ha sido enviada.');</script>");
+                MySqlCommand cmd = new MySqlCommand();
+                try
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = "INSERT INTO Solicitud_Prestamo(monto, descripcion, estado, idAdmin, idCuenta) VALUES("+valor+",'" + descripcion.Text + "',0,1," + Session["idCuenta"].ToString() + ");";
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    Response.Redirect("Inicio.aspx");
+
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    Response.Write("<script>window.alert('La solicitud no ha sido enviada.');</script>");
+                    Console.WriteLine("Error " + ex.Number + " has occurred: " + ex.Message);
+                    conn.Close();
+                }
             }
             else
             {
-                Error.Text = "ERROR: No se ha podido enviar la solicitud";
+                Response.Write("<script>window.alert('No se pudo conectar con la base de datos.');</script>");
             }
+                    
         }
         catch (Exception)
         {

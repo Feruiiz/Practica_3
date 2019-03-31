@@ -1,8 +1,9 @@
 use ayd1db;
 select * from Usuario;
+update Usuario set idrolUsuario = 1, nombre = 'admin', nickname = 'admin' where idUsuario = 1;
+select * from Cuenta;
 
-
-
+select * from Solicitud_Prestamo;
 INSERT INTO Rol_Usuario(nombre, descripcion) values ("Administrador","Usuario administrador tiene accesos diferentes a la aplicación ");
 INSERT INTO Rol_Usuario(nombre, descripcion) values ("Cliente","Usuario cliente del sistema bancario, acceso limitado a ciertas funcionalidades");
 
@@ -10,6 +11,8 @@ INSERT INTO Rol_Usuario(nombre, descripcion) values ("Cliente","Usuario cliente 
 INSERT INTO Tipo_Cuenta (nombre, descripcion) VALUES ("Monetaria", "Cuenta monetaria");
 INSERT INTO Tipo_Cuenta (nombre, descripcion) VALUES ("Ahorro", "Cuenta monetaria");
 select * from Tipo_Cuenta;
+
+INSERT INTO Solicitud_Prestamo VALUES(default,10000,'Necesito realizar el prestamos por iniciatia de negocio',0,1,4);
 
 select * from Rol_Usuario;
 

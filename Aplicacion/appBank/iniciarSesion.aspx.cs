@@ -45,7 +45,7 @@ public partial class iniciarSesion : System.Web.UI.Page
             }
             else if(Session["rolUsu"].ToString().Equals("2")) //Cliente
             {
-                Response.Redirect("transferenciaCuentas.aspx");
+                Response.Redirect("Inicio.aspx");
             }
         }
         else
