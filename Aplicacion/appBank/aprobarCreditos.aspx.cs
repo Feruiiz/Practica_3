@@ -71,6 +71,7 @@ public partial class appBank_aprobarCreditos : System.Web.UI.Page
                                 break;
                             }
                         }
+                        conn.Close();
                         String actualizar = "update Cuenta set saldo = saldo + " + monto + " where idUsuario = " + idUsuario + ";";
                         if (c.Ejecutar201503984(actualizar))
                         {
