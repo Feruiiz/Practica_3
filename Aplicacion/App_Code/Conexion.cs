@@ -217,7 +217,63 @@ public class Conexion
         }
     }
 
+    //---------------------------------------------------------------------------------------------
+    //-------------------------Metodo para recuperar datos de la cuenta-----------------------
+    public List<Datos> datosCuenta(String query)
+    {
+        MySqlConnection conn = getConection();
 
+        if (conn != null)
+        {
+            try
+            {
+                String output = null;
+                List<Datos> Retorno = new List<Datos>();
+                try
+                {
+                    //Se crea el comando que ejecutaremos en SQL Server
+                    MySqlCommand Comando = new MySqlCommand(query, conn);
+
+                    output = Comando.ExecuteScalar().ToString(); //devuelve el numero de filas afectadas
+                                                                 //Se crea un lector de datos, en este se almacena los resultados que nos dio sql server al momento de ejecutar el comando
+                    MySqlDataReader Lector = Comando.ExecuteReader();
+                    //Se repite por cada registro que haya regresado el comando de sql server, hasta que se hayan leido todos los registros
+                    while (Lector.Read())
+                    {
+                        Datos cuenta = new Datos(Lector[0].ToString(), Lector[1].ToString(), Lector[2].ToString(), Lector[3].ToString(), Lector[4].ToString());
+                        Retorno.Add(cuenta);
+                    }
+                    //Se cierra la conexion, es importante cerrarla
+                    conn.Close();
+                    conn.Dispose();
+                }
+                catch (MySqlException x)
+                {
+                    //Error de conexion
+                }
+                catch (Exception x2)
+                {
+                    //Error de c#
+                }
+                if (output != null)
+                {
+                    return Retorno;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        else
+        {
+            return null;
+        }
+    }
 
 
     /*
