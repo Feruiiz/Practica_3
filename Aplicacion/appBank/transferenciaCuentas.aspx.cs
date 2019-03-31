@@ -71,7 +71,7 @@ public partial class transferenciaCuentas : System.Web.UI.Page
                     {
                         if (!Session["idCuenta"].ToString().Equals(cuenta2.Text))
                         {
-                            if (!Session["idCuenta"].ToString().Equals(cuenta1.Text))
+                            if (Session["idCuenta"].ToString().Equals(cuenta1.Text))
                             {
                                 double montoAumenta = Convert.ToDouble(cuenta_2[0].dato2);
                                 dinero = Convert.ToDouble(monto.Text);
