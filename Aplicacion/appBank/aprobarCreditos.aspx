@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./Estilos/fontello.css"> 
     <title>Transferencia</title>
 </head>
-<body background="/imagenes/inicio2.jpg">
+<body background="./imagenes/inicio2.jpg">
     <header>
            <div class="contenedor">
                 <h1 class="icon-spin3">BANK</h1>
@@ -19,9 +19,7 @@
                 <!--ahora agregaremos el menu-->
                 <nav class="menu">
                 <ul class="nav">
-                    <li><a><span class="icon-left-open"></span>Ver Historial</a></li>
-                    <li><a href="perfilUsuario.aspx">Perfil de Usuario</a></li>
-                    <li><a href="solicitudPrestamo.aspx">Solicitud de prestamo</a></li>
+                    <li><a href="Debitos.aspx">Realizar debitos</a></li>
                     <li><a href="iniciarSesion.aspx">Salir del Sisteme</a></li>
                   </ul>
                   </nav>
@@ -30,16 +28,8 @@
      </header>
 
 
-    </br>
-    </br>
-    </br>
-    </br>
-
     <form id="form3" runat="server">
-
         <h2>Solicitud de Créditos</h2>
-
-            
             <asp:DropDownList class ="cajadeTexto" ID="listaPrestamos" runat="server" AutoPostBack="True">
             </asp:DropDownList>
            <asp:Button class ="cajadeTexto" ID="btn_solicitud" runat="server" Text="Ver solicitud" OnClick="verSolicitud_click" />
