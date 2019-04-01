@@ -51,5 +51,10 @@ namespace appBank
                 Error2.Text = "ERROR: debe de ingresar una contraseña de 8 digitos.";
             }
         }
+
+        protected void correo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -13,7 +13,7 @@
     <form id="form1" runat="server">
         <h2>RECUPERAR CONTRASEÑA</h2>
             <p>
-            <asp:TextBox class ="cajadeTexto" ID="correo" runat="server" placeholder ="Ingrese su correo electronico" required TextMode="Email"></asp:TextBox>
+            <asp:TextBox class ="cajadeTexto" ID="correo" runat="server" placeholder ="Ingrese su correo electronico" required TextMode="Email" OnTextChanged="correo_TextChanged"></asp:TextBox>
             <asp:TextBox class ="cajadeTexto" ID="pass1" runat="server" placeholder ="Ingrese nueva Contraseña" required TextMode="password" MaxLength="8"></asp:TextBox>
             <asp:TextBox class ="cajadeTexto" ID="pass2" runat="server" placeholder ="Confirmar contraseña" required TextMode="password" MaxLength="8"></asp:TextBox>
             <!--<input type="button" value="Enviar" id="boton">-->

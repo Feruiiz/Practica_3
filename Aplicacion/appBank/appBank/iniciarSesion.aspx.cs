@@ -23,7 +23,7 @@ namespace appBank
             }
         }
 
-        protected void boton_Click(object sender, EventArgs e)
+        public void boton_Click(object sender, EventArgs e)
         {
             Conexion c = new Conexion();
             String query = "SELECT u.idUsuario, u.nombre, u.nickname, u.correo,u.contraseña,u.idrolUsuario,c.idCuenta ";
