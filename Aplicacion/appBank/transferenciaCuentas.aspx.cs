@@ -42,9 +42,9 @@ public partial class transferenciaCuentas : System.Web.UI.Page
                 
                 valorActual = valorActual + dinero;
                 saldoActual.Text = "Saldo actual: Q " + valorActual.ToString("N2");
-                con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual.ToString("N2") + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");
+                con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");
                 Response.Write("<script>window.alert('El deposito se realizo con exito.');</script>");
-                break;
+                return;
             case 2: //Retiro
                 dinero = Convert.ToDouble(monto.Text);
                 this.cuenta = con.datosCuenta("SELECT * FROM Cuenta WHERE idCuenta=" + Session["idCuenta"].ToString() + ";");
@@ -54,14 +54,14 @@ public partial class transferenciaCuentas : System.Web.UI.Page
                 {
                     valorActual = valorActual - dinero;
                     saldoActual.Text = "Saldo actual: Q " + valorActual.ToString("N2");
-                    con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual.ToString("N2") + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");
+                    con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");
                     Response.Write("<script>window.alert('El retiro se realizo con exito.');</script>");
                 }
                 else
                 {
                     Error.Text = "ERROR: No cuenta con el saldo suficiente para realizar esta transaccion.";
                 }
-                break;
+                return;
             case 0: //transferencia entre cuentas
                 List<Datos> cuenta_2 = con.datosCuenta("SELECT * FROM Cuenta WHERE idCuenta=" + cuenta2.Text + ";");
 
@@ -84,8 +84,8 @@ public partial class transferenciaCuentas : System.Web.UI.Page
                                     valorActual = valorActual - dinero;
                                     montoAumenta = montoAumenta + dinero;
                                     saldoActual.Text = "Saldo actual: Q " + valorActual.ToString("N2");
-                                    con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual.ToString("N2") + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");
-                                    con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + montoAumenta.ToString("N2") + " WHERE idCuenta = " + cuenta_2[0].dato1.ToString() + ";");
+                                    con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");
+                                    con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + montoAumenta + " WHERE idCuenta = " + cuenta_2[0].dato1.ToString() + ";");
                                     Response.Write("<script>window.alert('La transferencia se realizo con exito.');</script>");
                                 }
                                 else
@@ -112,7 +112,7 @@ public partial class transferenciaCuentas : System.Web.UI.Page
                 {
                     Error.Text = "ERROR: Transaccion no realizada";
                 }
-                break;
+                return;
         }
     }
 
