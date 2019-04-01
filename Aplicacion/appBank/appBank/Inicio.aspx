@@ -23,7 +23,7 @@
                     <li><a href="perfilUsuario.aspx">Perfil de Usuario</a></li>
                     <li><a href="solicitudPrestamo.aspx">Solicitud de prestamo</a></li>
                     <li><a href="transferenciaCuentas.aspx">Transferencias Bancarias</a></li>
-                    <li><a href="iniciarSesion.aspx">Salir del Sisteme</a></li>
+                    <li><a href="iniciarSesion.aspx">Salir del Sistema</a></li>
                     
                   </ul>
                   </nav>

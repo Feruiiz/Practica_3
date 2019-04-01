@@ -20,7 +20,7 @@
                 <nav class="menu">
                 <ul class="nav">
                     <li><a href="Debitos.aspx">Realizar debitos</a></li>
-                    <li><a href="iniciarSesion.aspx">Salir del Sisteme</a></li>
+                    <li><a href="iniciarSesion.aspx">Salir del Sistema</a></li>
                   </ul>
                   </nav>
                 <!--ahora agregaremos el menu-->
