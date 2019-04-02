@@ -20,6 +20,8 @@
                 <nav class="menu">
                 <ul class="nav">
                     <li><a href="Debitos.aspx">Realizar debitos</a></li>
+                    <li><a href="reporteSolicitudes.aspx">Ver solicitudes</a></li>
+                    <li><a href="reporteUsuarios.aspx">Ver usuarios</a></li>
                     <li><a href="iniciarSesion.aspx">Salir del Sistema</a></li>
                   </ul>
                   </nav>

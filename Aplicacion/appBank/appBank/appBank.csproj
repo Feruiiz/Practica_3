@@ -99,7 +99,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CrearUsuario2.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -119,6 +118,8 @@
     <Content Include="Inicio.aspx" />
     <Content Include="perfilUsuario.aspx" />
     <Content Include="RecuperarContraseña.aspx" />
+    <Content Include="reporteSolicitudes.aspx" />
+    <Content Include="reporteUsuarios.aspx" />
     <Content Include="solicitudPrestamo.aspx" />
     <Content Include="transferenciaCuentas.aspx" />
     <Content Include="Web.config" />
@@ -138,13 +139,6 @@
     </Compile>
     <Compile Include="CrearUsuario.aspx.designer.cs">
       <DependentUpon>CrearUsuario.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CrearUsuario2.aspx.cs">
-      <DependentUpon>CrearUsuario2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CrearUsuario2.aspx.designer.cs">
-      <DependentUpon>CrearUsuario2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Datos.cs" />
     <Compile Include="Debitos.aspx.cs">
@@ -182,6 +176,20 @@
     </Compile>
     <Compile Include="RecuperarContraseña.aspx.designer.cs">
       <DependentUpon>RecuperarContraseña.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reporteSolicitudes.aspx.cs">
+      <DependentUpon>reporteSolicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reporteSolicitudes.aspx.designer.cs">
+      <DependentUpon>reporteSolicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reporteUsuarios.aspx.cs">
+      <DependentUpon>reporteUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reporteUsuarios.aspx.designer.cs">
+      <DependentUpon>reporteUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Solicitud.cs" />
     <Compile Include="solicitudPrestamo.aspx.cs">

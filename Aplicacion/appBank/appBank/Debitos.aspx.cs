@@ -46,7 +46,7 @@ namespace appBank
                             Double newSaldo = Convert.ToDouble(cuentas[0].dato2) - Convert.ToDouble(monto.Text);
                             c.Ejecutar201503984("UPDATE Cuenta SET saldo = " + newSaldo.ToString() + " WHERE idCuenta = " + cuenta.Text + ";");
                             newSaldo = Convert.ToDouble(datos[0].dato2) - Convert.ToDouble(monto.Text);
-                            c.Ejecutar201503984("UPDATE Solicitud_Prestamo SET monto = " + newSaldo.ToString("N2") + " WHERE idSolicitud = " + datos[0].dato1 + ";");
+                            c.Ejecutar201503984("UPDATE Solicitud_Prestamo SET monto = " + newSaldo.ToString() + " WHERE idSolicitud = " + datos[0].dato1 + ";");
                             Response.Write("<script>window.alert('El debito se realizo con exito.');</script>");
                         }
                         else
