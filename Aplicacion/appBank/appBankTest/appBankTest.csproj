@@ -56,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroTest.cs" />
     <Compile Include="TransferenciaTest.cs" />
+    <Compile Include="DebitacionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\appBank\appBank.csproj">
