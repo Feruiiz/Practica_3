@@ -20,7 +20,7 @@ namespace appBankTest
         {
             double valorActual = 2000;
             int idCuenta = 2;
-            Assert.IsTrue(con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual + " WHERE idCuenta = " + idCuenta.ToString() + ";"));
+            Assert.IsTrue(con.Ejecutar201503984("UPDATE Cuenta SET saldo = saldo -" + valorActual + " WHERE idCuenta = " + idCuenta.ToString() + " and saldo >= "+valorActual+";"));
         }
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace appBankTest
         {
             double valorActual = 100;
             int idCuenta = 2;
-            Assert.IsTrue(con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual + " WHERE idCuenta = " + idCuenta.ToString() + ";"));
+            Assert.IsTrue(con.Ejecutar201503984("UPDATE Cuenta SET saldo = saldo +" + valorActual + " WHERE idCuenta = " + idCuenta.ToString() + ";"));
         }
 
         [TestMethod]
@@ -37,8 +37,7 @@ namespace appBankTest
             int idCuenta1 = 2;
             int idCuenta2 = 3;
             double valorActual = 200;
-            double montoAumenta = 400;
-            Boolean respuesta = con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual + " WHERE idCuenta = " + idCuenta1 + ";") && con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + montoAumenta + " WHERE idCuenta = " + idCuenta2 + ";");
+            Boolean respuesta = con.Ejecutar201503984("UPDATE Cuenta SET saldo = saldo -" + valorActual + " WHERE idCuenta = " + idCuenta1 + " and saldo >= "+valorActual+";") && con.Ejecutar201503984("UPDATE Cuenta SET saldo = saldo +" + valorActual + " WHERE idCuenta = " + idCuenta2 + ";");
             Assert.IsTrue(respuesta);
         }
     }
