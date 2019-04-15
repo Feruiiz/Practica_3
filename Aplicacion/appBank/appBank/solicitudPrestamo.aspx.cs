@@ -42,6 +42,15 @@ namespace appBank
                         cmd.Connection = conn;
                         cmd.CommandText = "INSERT INTO Solicitud_Prestamo(monto, descripcion, estado, idAdmin, idCuenta) VALUES(" + valor + ",'" + descripcion.Text + "',0,1," + Session["idCuenta"].ToString() + ");";
                         cmd.ExecuteNonQuery();
+                        
+                        //----------------insertar transaccion 
+                        cmd.CommandText = "INSERT INTO Transaccion(monto, cuentaEmisor, cuentaReceptor, tipoTransaccion) values (" + valor + ",1," + Session["idCuenta"].ToString() + ",5);";
+                        cmd.ExecuteNonQuery();
+
+                        //---       INSERTAR NOTIFICACION A ADMINISTRADOR
+                        cmd.CommandText = "INSERT INTO Notificacion(mensaje, fecha, cuentaEmisora, cuentaReceptora, estado) values (\"Solicitud de Crédito Pendiente por un valor de: Q. " + valor + " \", default," + Session["idCuenta"].ToString() + ",1,0) ;";
+                        cmd.ExecuteNonQuery();
+
                         conn.Close();
                         Response.Redirect("Inicio.aspx");
 

@@ -47,6 +47,12 @@ namespace appBank
                             c.Ejecutar201503984("UPDATE Cuenta SET saldo = " + newSaldo.ToString() + " WHERE idCuenta = " + cuenta.Text + ";");
                             newSaldo = Convert.ToDouble(datos[0].dato2) - Convert.ToDouble(monto.Text);
                             c.Ejecutar201503984("UPDATE Solicitud_Prestamo SET monto = " + newSaldo.ToString() + " WHERE idSolicitud = " + datos[0].dato1 + ";");
+                            String transaccion = "INSERT INTO Transaccion(monto, cuentaEmisor, cuentaReceptor, tipoTransaccion) values (" + monto.Text + ",1," + cuenta.Text+",5);";
+                            c.Ejecutar201503984(transaccion);
+
+                            //---------------NOTIFICACION A USUARIO QUE SE LE HAN DEBITADO 
+                            c.Ejecutar201503984("INSERT INTO Notificacion(mensaje, fecha, cuentaEmisora, cuentaReceptora, estado) values (\"Se le han debitado Q. " +monto.Text+" por concepto de Crédito Pendiente.\", default, 1," + Session["idCuenta"].ToString() + ",0) ;");
+                            
                             Response.Write("<script>window.alert('El debito se realizo con exito.');</script>");
                         }
                         else

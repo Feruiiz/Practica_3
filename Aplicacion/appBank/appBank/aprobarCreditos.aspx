@@ -19,6 +19,7 @@
                 <!--ahora agregaremos el menu-->
                 <nav class="menu">
                 <ul class="nav">
+                    <li><a href="NotificacionesAdmin.aspx">Ver Notificaciones</a></li>
                     <li><a href="Debitos.aspx">Realizar debitos</a></li>
                     <li><a href="reporteSolicitudes.aspx">Ver solicitudes</a></li>
                     <li><a href="reporteUsuarios.aspx">Ver usuarios</a></li>

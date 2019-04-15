@@ -58,6 +58,8 @@
     <Compile Include="TransferenciaTest.cs" />
     <Compile Include="DebitacionTest.cs" />
     <Compile Include="SolicitudPrestamoTest.cs" />
+    <Compile Include="reporteNotificacionesTest.cs" />
+    <Compile Include="reporteSolicitudesTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\appBank\appBank.csproj">

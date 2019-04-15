@@ -29,6 +29,5 @@ namespace appBankTest
             Assert.IsTrue(res);
         }
 
-
     }
 }
