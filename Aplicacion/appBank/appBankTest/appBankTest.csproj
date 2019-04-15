@@ -35,7 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -58,6 +60,8 @@
     <Compile Include="TransferenciaTest.cs" />
     <Compile Include="DebitacionTest.cs" />
     <Compile Include="SolicitudPrestamoTest.cs" />
+    <Compile Include="reporteTransacciones.cs" />
+    <Compile Include="reporteUsuarios.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\appBank\appBank.csproj">
