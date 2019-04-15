@@ -1,0 +1,121 @@
+[1mdiff --git a/Aplicacion/appBank/appBank/Inicio.aspx b/Aplicacion/appBank/appBank/Inicio.aspx[m
+[1mindex 34f0e6c..1899966 100644[m
+[1m--- a/Aplicacion/appBank/appBank/Inicio.aspx[m
+[1m+++ b/Aplicacion/appBank/appBank/Inicio.aspx[m
+[36m@@ -19,7 +19,7 @@[m
+                 <!--ahora agregaremos el menu-->[m
+                 <nav class="menu">[m
+                 <ul class="nav">[m
+[31m-                    <li><a><span class="icon-left-open"></span>Ver Historial</a></li>[m
+[32m+[m[32m                    <li><a href="reporteTransacciones.aspx">Ver Transacciones</a></li>[m
+                     <li><a href="perfilUsuario.aspx">Perfil de Usuario</a></li>[m
+                     <li><a href="solicitudPrestamo.aspx">Solicitud de prestamo</a></li>[m
+                     <li><a href="transferenciaCuentas.aspx">Transferencias Bancarias</a></li>[m
+[1mdiff --git a/Aplicacion/appBank/appBank/appBank.csproj b/Aplicacion/appBank/appBank/appBank.csproj[m
+[1mindex ea307ba..654b5a9 100644[m
+[1m--- a/Aplicacion/appBank/appBank/appBank.csproj[m
+[1m+++ b/Aplicacion/appBank/appBank/appBank.csproj[m
+[36m@@ -119,6 +119,7 @@[m
+     <Content Include="perfilUsuario.aspx" />[m
+     <Content Include="RecuperarContraseña.aspx" />[m
+     <Content Include="reporteSolicitudes.aspx" />[m
+[32m+[m[32m    <Content Include="reporteTransacciones.aspx" />[m
+     <Content Include="reporteUsuarios.aspx" />[m
+     <Content Include="solicitudPrestamo.aspx" />[m
+     <Content Include="transferenciaCuentas.aspx" />[m
+[36m@@ -184,6 +185,13 @@[m
+     <Compile Include="reporteSolicitudes.aspx.designer.cs">[m
+       <DependentUpon>reporteSolicitudes.aspx</DependentUpon>[m
+     </Compile>[m
+[32m+[m[32m    <Compile Include="reporteTransacciones.aspx.cs">[m
+[32m+[m[32m      <DependentUpon>reporteTransacciones.aspx</DependentUpon>[m
+[32m+[m[32m      <SubType>ASPXCodeBehind</SubType>[m
+[32m+[m[32m    </Compile>[m
+[32m+[m[32m    <Compile Include="reporteTransacciones.aspx.designer.cs">[m
+[32m+[m[32m      <DependentUpon>reporteTransacciones.aspx</DependentUpon>[m
+[32m+[m[32m    </Compile>[m
+     <Compile Include="reporteUsuarios.aspx.cs">[m
+       <DependentUpon>reporteUsuarios.aspx</DependentUpon>[m
+       <SubType>ASPXCodeBehind</SubType>[m
+[1mdiff --git a/Aplicacion/appBank/appBank/transferenciaCuentas.aspx.cs b/Aplicacion/appBank/appBank/transferenciaCuentas.aspx.cs[m
+[1mindex f113769..6c7425f 100644[m
+[1m--- a/Aplicacion/appBank/appBank/transferenciaCuentas.aspx.cs[m
+[1m+++ b/Aplicacion/appBank/appBank/transferenciaCuentas.aspx.cs[m
+[36m@@ -45,6 +45,8 @@[m [mnamespace appBank[m
+                     valorActual = valorActual + dinero;[m
+                     saldoActual.Text = "Saldo actual: Q " + valorActual.ToString("N2");[m
+                     con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");[m
+[32m+[m[32m                    con.Ejecutar201503984("INSERT INTO Transaccion VALUES("+dinero+",default,"+ Session["idCuenta"].ToString() + "," + Session["idCuenta"].ToString() + ",1);");[m
+[32m+[m[32m                    con.Ejecutar201503984("INSERT INTO Notificacion VALUES(default,'se ha depositado "+dinero.ToString("N2")+" a su cuenta',default,"+ Session["idCuenta"].ToString() + ","+ Session["idCuenta"].ToString() + ",0);");[m
+                     Response.Write("<script>window.alert('El deposito se realizo con exito.');</script>");[m
+                     return;[m
+                 case 2: //Retiro[m
+[36m@@ -57,6 +59,8 @@[m [mnamespace appBank[m
+                         valorActual = valorActual - dinero;[m
+                         saldoActual.Text = "Saldo actual: Q " + valorActual.ToString("N2");[m
+                         con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");[m
+[32m+[m[32m                        con.Ejecutar201503984("INSERT INTO Transaccion VALUES(" + dinero + ",default," + Session["idCuenta"].ToString() + "," + Session["idCuenta"].ToString() + ",2);");[m
+[32m+[m[32m                        con.Ejecutar201503984("INSERT INTO Notificacion VALUES(default,'se ha retirado " + dinero.ToString("N2") + " de su cuenta',default," + Session["idCuenta"].ToString() + "," + Session["idCuenta"].ToString() + ",0);");[m
+                         Response.Write("<script>window.alert('El retiro se realizo con exito.');</script>");[m
+                     }[m
+                     else[m
+[36m@@ -87,17 +91,23 @@[m [mnamespace appBank[m
+                                         montoAumenta = montoAumenta + dinero;[m
+                                         saldoActual.Text = "Saldo actual: Q " + valorActual.ToString("N2");[m
+                                         con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");[m
+[32m+[m[32m                                        con.Ejecutar201503984("INSERT INTO Transaccion VALUES(" + dinero + ",default," + Session["idCuenta"].ToString() + "," + cuenta_2[0].dato1.ToString() + ",4);");[m
+[32m+[m[32m                                        con.Ejecutar201503984("INSERT INTO Notificacion VALUES(default,'se ha retirado " + dinero.ToString("N2") + " de su cuenta, a la cuenta No. "+ cuenta_2[0].dato1.ToString() + "',default," + cuenta_2[0].dato1.ToString() + "," + Session["idCuenta"].ToString() + ",0);");[m
+                                         con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + montoAumenta + " WHERE idCuenta = " + cuenta_2[0].dato1.ToString() + ";");[m
+[32m+[m[32m                                        //con.Ejecutar201503984("INSERT INTO Transaccion VALUES(" + dinero + ",default," + Session["idCuenta"].ToString() + "," + cuenta_2[0].dato1.ToString() + ",3);");[m
+[32m+[m[32m                                        con.Ejecutar201503984("INSERT INTO Transaccion VALUES(" + dinero + ",default," + cuenta_2[0].dato1.ToString() + "," + Session["idCuenta"].ToString() + ",3);");[m
+[32m+[m[32m                                        con.Ejecutar201503984("INSERT INTO Notificacion VALUES(default,'se ha depositado " + dinero.ToString("N2") + " a su cuenta, de la cuenta No. "+ Session["idCuenta"].ToString() + "',default," + Session["idCuenta"].ToString() + "," + cuenta_2[0].dato1.ToString() + ",0);");[m
+[32m+[m
+                                         Response.Write("<script>window.alert('La transferencia se realizo con exito.');</script>");[m
+                                     }[m
+                                     else[m
+                                     {[m
+[31m-                                        Error.Text = "ERROR: El numero de cuenta propia no coincide con la del usuario.";[m
+[32m+[m[32m                                        Error.Text = "ERROR: No cuenta con el saldo suficiente para realizar esta transaccion.";[m
+                                     }[m
+                                 }[m
+                                 else[m
+                                 {[m
+[31m-                                    Error.Text = "ERROR: Debe de ingresar un numero de cuenta diferente a la suya.";[m
+[32m+[m[32m                                    Error.Text = "ERROR: El numero de cuenta propia no coincide con la cuenta logeada.";[m
+                                 }[m
+                             }[m
+                             else[m
+[1mdiff --git a/Aplicacion/appBank/appBankTest/LoginTest.cs b/Aplicacion/appBank/appBankTest/LoginTest.cs[m
+[1mindex e461810..c06180c 100644[m
+[1m--- a/Aplicacion/appBank/appBankTest/LoginTest.cs[m
+[1m+++ b/Aplicacion/appBank/appBankTest/LoginTest.cs[m
+[36m@@ -34,6 +34,17 @@[m [mnamespace appBankTest[m
+             Assert.IsTrue(respuesta);[m
+         }[m
+ [m
+[32m+[m
+[32m+[m[32m        [TestMethod][m
+[32m+[m[32m        public void TesteditarPerfil()[m
+[32m+[m[32m        {[m
+[32m+[m[32m            String correo = "fer@gmail.com";[m
+[32m+[m[32m            String password = "123fffff";[m
+[32m+[m[32m            Conexion c = new Conexion();[m
+[32m+[m[32m            Boolean respuesta = c.Ejecutar201503984("UPDATE Usuario SET contraseña=\"" + password + "\" WHERE correo='" + correo + "';");[m
+[32m+[m[32m            Assert.IsTrue(respuesta);[m
+[32m+[m[32m        }[m
+[32m+[m
+     }[m
+ }[m
+ [m
+[1mdiff --git a/Aplicacion/appBank/appBankTest/SolicitudPrestamoTest.cs b/Aplicacion/appBank/appBankTest/SolicitudPrestamoTest.cs[m
+[1mindex 1383528..0460be6 100644[m
+[1m--- a/Aplicacion/appBank/appBankTest/SolicitudPrestamoTest.cs[m
+[1m+++ b/Aplicacion/appBank/appBankTest/SolicitudPrestamoTest.cs[m
+[36m@@ -28,7 +28,5 @@[m [mnamespace appBankTest[m
+             bool res = c.Ejecutar201503984(comando);[m
+             Assert.IsTrue(res);[m
+         }[m
+[31m-[m
+[31m-[m
+     }[m
+ }[m

@@ -119,6 +119,7 @@
     <Content Include="perfilUsuario.aspx" />
     <Content Include="RecuperarContraseña.aspx" />
     <Content Include="reporteSolicitudes.aspx" />
+    <Content Include="reporteTransacciones.aspx" />
     <Content Include="reporteUsuarios.aspx" />
     <Content Include="solicitudPrestamo.aspx" />
     <Content Include="transferenciaCuentas.aspx" />
@@ -183,6 +184,13 @@
     </Compile>
     <Compile Include="reporteSolicitudes.aspx.designer.cs">
       <DependentUpon>reporteSolicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reporteTransacciones.aspx.cs">
+      <DependentUpon>reporteTransacciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reporteTransacciones.aspx.designer.cs">
+      <DependentUpon>reporteTransacciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="reporteUsuarios.aspx.cs">
       <DependentUpon>reporteUsuarios.aspx</DependentUpon>

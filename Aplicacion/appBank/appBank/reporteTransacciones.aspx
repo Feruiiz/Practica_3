@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="appBank.Inicio" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="reporteTransacciones.aspx.cs" Inherits="appBank.reporteTransacciones" %>
 
 <!DOCTYPE html>
 
@@ -7,9 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="./Estilos/estilo.css">
     <link rel="stylesheet" href="./Estilos/fontello.css"> 
-    <title>Inicio</title>
+    <title>Reporte de Transacciones</title>
 </head>
-<body  background="./imagenes/inicio1.jpg">
+<body>
     <header>
            <div class="contenedor">
                 <h1 class="icon-spin3">BANK</h1>
@@ -19,40 +19,27 @@
                 <!--ahora agregaremos el menu-->
                 <nav class="menu">
                 <ul class="nav">
-                    <li><a href="reporteTransacciones.aspx">Ver Transacciones</a></li>
+                    <li><a href="Inicio.aspx">Inicio</a></li>
                     <li><a href="perfilUsuario.aspx">Perfil de Usuario</a></li>
                     <li><a href="solicitudPrestamo.aspx">Solicitud de prestamo</a></li>
                     <li><a href="transferenciaCuentas.aspx">Transferencias Bancarias</a></li>
                     <li><a href="iniciarSesion.aspx">Salir del Sistema</a></li>
-                    
                   </ul>
                   </nav>
                 <!--ahora agregaremos el menu-->
              </div>
      </header>
 
+     </br>
+    </br>
 
-    </br>
-    </br>
-    </br>
-    </br>
-    
-    
-    
-
-    <form id="form3" runat="server">
-        <h2>Bienvenido</h2>
-        <asp:Label  class="nomusu" ID="name_user" runat="server" ForeColor="White" ></asp:Label>
-        </br>
-        </br>
-        <h2>Información Cuenta</h2>
-        <asp:Label CssClass="cajadeTexto" ID="no_cuenta" runat="server" ForeColor="White" Text ="Numero de cuenta: "></asp:Label>
-        </br>
-        </br>
-        <asp:Label CssClass="cajadeTexto" ID="saldoActual" runat="server" ForeColor="White" Text ="Saldo Actual: "></asp:Label>
-        </br>
-        </br>
-        <asp:Label ID="Error" runat="server" Text="" cssclass="Error"></asp:Label> 
+    <form id="form3" runat="server"> 
+            <asp:Label ID="saldoActual" runat="server" ForeColor="White"></asp:Label>
+            <br />
+            </br>
+            <asp:Button class ="cajadeTexto" ID="boton" runat="server" Text="Descargar estado de cuenta" OnClick="boton_Click" />
     </form>
+
 </body>
 </html>
+

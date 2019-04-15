@@ -45,6 +45,8 @@ namespace appBank
                     valorActual = valorActual + dinero;
                     saldoActual.Text = "Saldo actual: Q " + valorActual.ToString("N2");
                     con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");
+                    con.Ejecutar201503984("INSERT INTO Transaccion VALUES("+dinero+",default,"+ Session["idCuenta"].ToString() + "," + Session["idCuenta"].ToString() + ",1);");
+                    con.Ejecutar201503984("INSERT INTO Notificacion VALUES(default,'se ha depositado "+dinero.ToString("N2")+" a su cuenta',default,"+ Session["idCuenta"].ToString() + ","+ Session["idCuenta"].ToString() + ",0);");
                     Response.Write("<script>window.alert('El deposito se realizo con exito.');</script>");
                     return;
                 case 2: //Retiro
@@ -57,6 +59,8 @@ namespace appBank
                         valorActual = valorActual - dinero;
                         saldoActual.Text = "Saldo actual: Q " + valorActual.ToString("N2");
                         con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");
+                        con.Ejecutar201503984("INSERT INTO Transaccion VALUES(" + dinero + ",default," + Session["idCuenta"].ToString() + "," + Session["idCuenta"].ToString() + ",2);");
+                        con.Ejecutar201503984("INSERT INTO Notificacion VALUES(default,'se ha retirado " + dinero.ToString("N2") + " de su cuenta',default," + Session["idCuenta"].ToString() + "," + Session["idCuenta"].ToString() + ",0);");
                         Response.Write("<script>window.alert('El retiro se realizo con exito.');</script>");
                     }
                     else
@@ -87,17 +91,23 @@ namespace appBank
                                         montoAumenta = montoAumenta + dinero;
                                         saldoActual.Text = "Saldo actual: Q " + valorActual.ToString("N2");
                                         con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + valorActual + " WHERE idCuenta = " + Session["idCuenta"].ToString() + ";");
+                                        con.Ejecutar201503984("INSERT INTO Transaccion VALUES(" + dinero + ",default," + Session["idCuenta"].ToString() + "," + cuenta_2[0].dato1.ToString() + ",4);");
+                                        con.Ejecutar201503984("INSERT INTO Notificacion VALUES(default,'se ha retirado " + dinero.ToString("N2") + " de su cuenta, a la cuenta No. "+ cuenta_2[0].dato1.ToString() + "',default," + cuenta_2[0].dato1.ToString() + "," + Session["idCuenta"].ToString() + ",0);");
                                         con.Ejecutar201503984("UPDATE Cuenta SET saldo = " + montoAumenta + " WHERE idCuenta = " + cuenta_2[0].dato1.ToString() + ";");
+                                        //con.Ejecutar201503984("INSERT INTO Transaccion VALUES(" + dinero + ",default," + Session["idCuenta"].ToString() + "," + cuenta_2[0].dato1.ToString() + ",3);");
+                                        con.Ejecutar201503984("INSERT INTO Transaccion VALUES(" + dinero + ",default," + cuenta_2[0].dato1.ToString() + "," + Session["idCuenta"].ToString() + ",3);");
+                                        con.Ejecutar201503984("INSERT INTO Notificacion VALUES(default,'se ha depositado " + dinero.ToString("N2") + " a su cuenta, de la cuenta No. "+ Session["idCuenta"].ToString() + "',default," + Session["idCuenta"].ToString() + "," + cuenta_2[0].dato1.ToString() + ",0);");
+
                                         Response.Write("<script>window.alert('La transferencia se realizo con exito.');</script>");
                                     }
                                     else
                                     {
-                                        Error.Text = "ERROR: El numero de cuenta propia no coincide con la del usuario.";
+                                        Error.Text = "ERROR: No cuenta con el saldo suficiente para realizar esta transaccion.";
                                     }
                                 }
                                 else
                                 {
-                                    Error.Text = "ERROR: Debe de ingresar un numero de cuenta diferente a la suya.";
+                                    Error.Text = "ERROR: El numero de cuenta propia no coincide con la cuenta logeada.";
                                 }
                             }
                             else
