@@ -77,6 +77,9 @@ namespace appBank
                             String actualizar = "update Cuenta set saldo = saldo + " + monto + " where idUsuario = " + idUsuario + ";";
                             if (c.Ejecutar201503984(actualizar))
                             {
+                                //---------------NOTIFICACION A USUARIO QUE SE LE APROBO EL CREDITO 
+                                c.Ejecutar201503984("INSERT INTO Notificacion(mensaje, fecha, cuentaEmisora, cuentaReceptora, estado) values (\"Se aprobo la solicitud de credito realizada por  Q. " + monto + " \", default, 1," + idUsuario + ",0) ;");
+
                                 Response.Write("<script>window.alert('Crédito aprobado');</script>");
                                 Response.Redirect("aprobarCreditos.aspx");
                             }
@@ -139,8 +142,37 @@ namespace appBank
                 String comando = "UPDATE Solicitud_Prestamo SET estado = 2 where idSolicitud = " + no_solicitud.Text + ";";
                 if (c.Ejecutar201503984(comando))
                 {
-                    Response.Write("<script>window.alert('Se ha rechazado el credito');</script>");
-                    Response.Redirect("aprobarCreditos.aspx");
+                    String id_cuenta = "select u.idUsuario from Usuario u, Solicitud_Prestamo s, Cuenta c where s.idSolicitud = " + no_solicitud.Text + " and u.idUsuario = c.idUsuario and c.idCuenta = s.idCuenta;";
+                    MySqlConnection conn = c.getConection();
+                    if (conn != null)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        try
+                        {
+                            cmd.Connection = conn;
+                            cmd.CommandText = id_cuenta;
+                            String idUsuario = "";
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    idUsuario = reader["idUsuario"].ToString();
+                                    break;
+                                }
+                            }
+                            conn.Close();
+                            //---------------NOTIFICACION A USUARIO QUE SE LE APROBO EL CREDITO 
+                            c.Ejecutar201503984("INSERT INTO Notificacion(mensaje, fecha, cuentaEmisora, cuentaReceptora, estado) values (\"Se rechazo la solicitud de credito realizada por  Q. " + monto + " \", default, 1," + idUsuario + ",0) ;");
+                            Response.Write("<script>window.alert('Se ha rechazado el credito');</script>");
+                            Response.Redirect("aprobarCreditos.aspx");
+
+                        }
+                        catch (MySql.Data.MySqlClient.MySqlException ex)
+                        {
+                            Console.WriteLine("Error " + ex.Number + " has occurred: " + ex.Message);
+                            conn.Close();
+                        }
+                    }                    
                 }
                 else
                 {

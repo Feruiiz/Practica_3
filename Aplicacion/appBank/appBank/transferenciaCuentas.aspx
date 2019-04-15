@@ -19,6 +19,7 @@
                 <!--ahora agregaremos el menu-->
                 <nav class="menu">
                 <ul class="nav">
+                    <li><a href="NotificacionesUsuario.aspx">Ver Notificaciones</a></li>
                     <li><a><span class="icon-left-open"></span>Ver Historial</a></li>
                     <li><a href="perfilUsuario.aspx">Perfil de Usuario</a></li>
                     <li><a href="solicitudPrestamo.aspx">Solicitud de prestamo</a></li>

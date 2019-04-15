@@ -99,6 +99,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NotificacionesAdmin.aspx" />
+    <Content Include="NotificacionesUsuario.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -162,6 +164,20 @@
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotificacionesAdmin.aspx.cs">
+      <DependentUpon>NotificacionesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotificacionesAdmin.aspx.designer.cs">
+      <DependentUpon>NotificacionesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotificacionesUsuario.aspx.cs">
+      <DependentUpon>NotificacionesUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotificacionesUsuario.aspx.designer.cs">
+      <DependentUpon>NotificacionesUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="perfilUsuario.aspx.cs">
       <DependentUpon>perfilUsuario.aspx</DependentUpon>

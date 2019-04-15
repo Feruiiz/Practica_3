@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="reporteSolicitudes.aspx.cs" Inherits="appBank.reporteSolicitudes" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NotificacionesAdmin.aspx.cs" Inherits="appBank.Notificaciones" %>
 
 <!DOCTYPE html>
 
@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="./Estilos/estilo.css">
     <link rel="stylesheet" href="./Estilos/fontello.css"> 
-    <title>Reporte de solicitudes</title>
+    <title>Notificaciones</title>
 </head>
 <body>
     <header>
@@ -19,15 +19,18 @@
                 <!--ahora agregaremos el menu-->
                 <nav class="menu">
                 <ul class="nav">
-                    <li><a href="NotificacionesAdmin.aspx">Ver Notificaciones</a></li>
                     <li><a href="Debitos.aspx">Realizar debitos</a></li>
                     <li><a href="aprobarCreditos.aspx">Aprobar Creditos</a></li>
                     <li><a href="reporteUsuarios.aspx">Ver usuarios</a></li>
+                    <li><a href="reporteSolicitudes.aspx">Ver solicitudes</a></li>
                     <li><a href="iniciarSesion.aspx">Salir del Sistema</a></li>
                   </ul>
                   </nav>
                 <!--ahora agregaremos el menu-->
              </div>
      </header>
+     <form id="form3" runat="server">
+         <asp:Button class ="cajadeTexto" ID="btn_aceptar" runat="server" Text="Marcar Como Leídas" OnClick="marcar_leidas" />
+    </form>
 </body>
 </html>
