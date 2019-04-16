@@ -88,7 +88,7 @@ namespace appBank
         {
             try
             {
-                StreamWriter escribir = new StreamWriter("C:/PDF/Transacciones.txt", false);
+                StreamWriter escribir = new StreamWriter("C:/PDF/Transacciones.report", false);
 
                 String query = "SELECT b.nombre,a.monto,a.fecha,a.cuentaEmisor,a.cuentaReceptor, u.nombre FROM Transaccion a, Tipo_Transaccion b, Cuenta c, Usuario u WHERE b.idtipoTransaccion = a.tipoTransaccion and a.cuentaReceptor = c.idCuenta and c.idUsuario = u.idUsuario and cuentaEmisor = " + Session["idCuenta"].ToString() + ";";
                 MySqlConnection conn = c.getConection();
