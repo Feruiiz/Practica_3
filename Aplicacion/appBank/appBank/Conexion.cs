@@ -9,7 +9,7 @@ using System.Data;
 namespace appBank
 {
     public class Conexion
-    
+    {
         public Conexion()
         {
 
