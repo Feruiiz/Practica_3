@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿//using MySql.Data.MySqlClient;
-=======
-//using MySql.Data.MySqlClient;
->>>>>>> 1e35bb962f6dce806a0f90f4a28a2e641cfaaafa
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
