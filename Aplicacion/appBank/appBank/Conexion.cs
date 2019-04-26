@@ -12,7 +12,7 @@ namespace appBank
     {
         public Conexion()
         {
-
+    		//calificacion
         }
 
         public bool probarConexion()
