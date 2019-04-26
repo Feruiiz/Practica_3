@@ -17,7 +17,7 @@ namespace appBank
 
         public bool probarConexion()
         {
-            MySqlConnection con
+            MySqlConnection con;
             String servidor = "ayd1db.c1nkrylvqoo0.us-east-2.rds.amazonaws.com";
             String puerto = "3306";
             String usuario = "ayd1db";
