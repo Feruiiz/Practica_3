@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿//using MySql.Data.MySqlClient;
+=======
+//using MySql.Data.MySqlClient;
+>>>>>>> 1e35bb962f6dce806a0f90f4a28a2e641cfaaafa
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +31,6 @@ namespace appBank
             //Cadena de conexion
 
             String cadenaConexion = String.Format("server={0};port={1};user id={2}; password={3}; database={4}", servidor, puerto, usuario, password, database);
-
             try
             {
                 con = new MySqlConnection(cadenaConexion);
